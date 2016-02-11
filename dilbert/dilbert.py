@@ -3,7 +3,7 @@ from BeautifulSoup import *
 import time
 from datetime import date
 import re
-
+import imghdr
 
 def getDilbert(dateInput):
 	pictureDate = str(date.today())
@@ -20,7 +20,11 @@ def getDilbert(dateInput):
 		for tag in tags:
 			url = tag.get('src', None)
 			try:
-				urllib.urlretrieve(url, pictureDate+".jpg")
+				urlFile = urllib.urlopen(url).read()
+				ext = imghdr.what("", urlFile)
+				output = open(pictureDate+"."+ext, "w")
+				output.write(urlFile)
+				output.close()
 			except:
 				print url, "could not be located"
 			print url
