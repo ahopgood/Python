@@ -1,7 +1,7 @@
+__author__ = 'Alexander'
 from paramiko import AuthenticationException
 from paramiko.ssh_exception import NoValidConnectionsError
 
-__author__ = 'Alexander'
 import unittest
 import ssh
 class test_ssh(unittest.TestCase):
