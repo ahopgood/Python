@@ -21,9 +21,6 @@ class test_Penetration_Home():
     def combineDictionaries(self, dict1, dict2):
         # for key, value in dict2.items():
         dict = {}
-        # if dict2 is None: return dict1
-        # dict1.update(dict2)
-        # return dict1
         dict.update(dict1)
         dict.update(dict2)
         return dict
@@ -45,3 +42,9 @@ if __name__ == '__main__':
     #@,www,blog
     print test.domain("katherinemorley.net", test.combineDictionaries(baseSubDomains,{"blog":"blog."}) )
     #blog,www, @
+
+    print test.domain("katherinemorley.net", test.combineDictionaries(baseSubDomains,{"blog":"blog."}) )
+
+    #Static resouces on Apache web pages are accessible, I'm not sure if this is a good thing (tm)
+    print "cv.alexanderhopgood.com/CvResources/"+" "+str(checkStaticPage("http://cv.alexanderhopgood.com/CvResources/"))
+    print "cv.alexanderhopgood.com/CvResources/isca-logo.png"+" "+str(checkStaticPage("http://cv.alexanderhopgood.com/CvResources/isca-logo.png"))
